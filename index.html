@@ -3,44 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Biodata</title>
+    <title>Professional Biodata</title>
+    
+    <!-- Microsoft Clarity Tracking Code Script Loader (Triggered only after consent) -->
+    <script>
+        function loadClarity() {
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "y7zppa2xme");
+        }
+
+        // Check if user previously accepted cookies
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('cookieConsent') === 'accepted') {
+                loadClarity();
+                document.getElementById('cookie-banner').style.display = 'none';
+            }
+        });
+    </script>
+
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; background: #f9f9f9; }
-        .card { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        h1, h2 { color: #0056b3; }
-        .section { margin-bottom: 30px; }
-        img { max-width: 150px; border-radius: 50%; border: 3px solid #0056b3; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; background: #f4f6f9; }
+        .card { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .header { text-align: center; border-bottom: 2px solid #eaeaea; padding-bottom: 20px; margin-bottom: 30px; }
+        .header img { width: 140px; height: 140px; object-fit: cover; border-radius: 50%; border: 4px solid #0056b3; }
+        h1 { margin: 10px 0 5px; color: #222; }
+        h2 { color: #0056b3; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 30px; }
+        .section { margin-bottom: 25px; }
+        
+        /* Cookie Banner Styling */
+        #cookie-banner {
+            position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: #fff;
+            padding: 15px 20px; box-sizing: border-box; display: flex; justify-content: space-between;
+            align-items: center; z-index: 1000; box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+        }
+        #cookie-banner p { margin: 0; font-size: 14px; max-width: 600px; }
+        .cookie-buttons button { padding: 8px 16px; margin-left: 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .accept-btn { background: #28a745; color: #white; }
+        .reject-btn { background: #6c757d; color: #white; }
     </style>
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y7zppa2xme");
-</script>
 </head>
 <body>
+
     <div class="card">
-        <div style="text-align: center;" class="section">
-            <img src="your-photo.jpg" alt="Profile Photo">
-            <h1>Robi Name</h1>
-            <p>Professional Title / Summary</p>
+        <div class="header">
+            <img src="ltst psprt szai.jpeg" alt="Profile Picture">
+            <h1>Your Full Name</h1>
+            <p>Professional Title / Summary Statement</p>
         </div>
-        
+
         <div class="section" id="education">
             <h2>Education</h2>
-            <p><strong>MC Name</strong> — University/College Name (Year)</p>
+            <p><strong>Degree Title</strong> — University Name (Graduation Year)</p>
+            <p><strong>High School / Secondary</strong> — Institution Name (Year)</p>
         </div>
 
         <div class="section" id="experience">
-            <h2>Experience</h2>
-            <p><strong>Job Title</strong> — Company Name (Year - Present)</p>
+            <h2>Experience & Career</h2>
+            <p><strong>Current Role</strong> — Company Name (Years active)</p>
+            <p>Brief summary of responsibilities and technical expertise.</p>
+        </div>
+
+        <div class="section" id="family">
+            <h2>Family Background</h2>
+            <p><strong>Father's Name:</strong> Occupation</p>
+            <p><strong>Mother's Name:</strong> Occupation</p>
         </div>
 
         <div class="section" id="contact">
-            <h2>Contact</h2>
-            <p>Email: robo@example.com</p>
+            <h2>Contact Details</h2>
+            <p>Email: your-email@example.com | Phone: +00 0000000000</p>
         </div>
     </div>
+
+    <!-- Cookie Consent Popup Banner -->
+    <div id="cookie-banner">
+        <p>We use cookies and analytical tracking tools to analyze site performance, understand visitor interactions, and improve user experience. By clicking "Accept", you consent to our use of analytics.</p>
+        <div class="cookie-buttons">
+            <button class="reject-btn" onclick="rejectCookies()">Decline</button>
+            <button class="accept-btn" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookie-banner').style.display = 'none';
+            loadClarity();
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
