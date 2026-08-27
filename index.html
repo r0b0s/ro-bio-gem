@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Biodata</title>
     
-    <!-- Microsoft Clarity Tracking Code Script Loader (Triggered only after consent) -->
+    <!-- Microsoft Clarity Tracking Code Script Loader -->
     <script>
         function loadClarity() {
+            if(window.clarityLoaded) return;
+            window.clarityLoaded = true;
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -15,7 +17,6 @@
             })(window, document, "clarity", "script", "y7zppa2xme");
         }
 
-        // Check if user previously accepted cookies
         window.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('cookieConsent') === 'accepted') {
                 loadClarity();
@@ -26,30 +27,44 @@
 
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; background: #f4f6f9; }
-        .card { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .card { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-bottom: 40px; }
         .header { text-align: center; border-bottom: 2px solid #eaeaea; padding-bottom: 20px; margin-bottom: 30px; }
         .header img { width: 140px; height: 140px; object-fit: cover; border-radius: 50%; border: 4px solid #0056b3; }
         h1 { margin: 10px 0 5px; color: #222; }
         h2 { color: #0056b3; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 30px; }
         .section { margin-bottom: 25px; }
-        
-        /* Cookie Banner Styling */
+
+        /* Standard Modern Centered Cookie Banner Style */
         #cookie-banner {
-            position: fixed; bottom: 0; left: 40; width: 60%; background: #222; color: #fff;
-            padding: 15px 20px; box-sizing: border-box; display: flex; justify-content: space-between;
-            align-items: center; z-index: 1000; box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 500px; background: #ffffff; color: #333;
+            padding: 25px; border-radius: 12px; box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 1000; text-align: center;
+            border: 1px solid #e1e4e8;
         }
-        #cookie-banner p { margin: 0; font-size: 14px; max-width: 600px; }
-        .cookie-buttons button { padding: 8px 16px; margin-left: 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        .accept-btn { background: #28a745; color: #white; }
-        .reject-btn { background: #6c757d; color: #white; }
+        #cookie-banner p { margin: 0 0 20px 0; font-size: 14px; color: #555; line-height: 1.5; }
+        .cookie-buttons { display: flex; flex-direction: column; gap: 10px; }
+        .cookie-buttons button { width: 100%; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+        .accept-btn { background: #0056b3; color: #fff; }
+        .accept-btn:hover { background: #004085; }
+        .reject-btn { background: #f1f3f5; color: #495057; }
+        .reject-btn:hover { background: #e2e6ea; }
     </style>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NE96JYZV3K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NE96JYZV3K');
+</script>
 </head>
 <body>
 
     <div class="card">
         <div class="header">
-            <img src="ltst psprt szai.jpeg" alt="Profile Picture">
+            <img src="your-photo.jpg" alt="Profile Picture">
             <h1>Your Full Name</h1>
             <p>Professional Title / Summary Statement</p>
         </div>
@@ -78,12 +93,13 @@
         </div>
     </div>
 
-    <!-- Cookie Consent Popup Banner -->
+    <!-- Centered Modal Cookie Consent Banner -->
     <div id="cookie-banner">
-        <p>We use cookies and analytical tracking tools to analyze site performance, understand visitor interactions, and improve user experience. By clicking "Accept", you consent to our use of analytics.</p>
+        <h3>Privacy & Analytics Notice</h3>
+        <p>We use tracking technologies to analyze site performance, device specs, and time spent on sections to improve your viewing experience. Do you accept our analytics policy?</p>
         <div class="cookie-buttons">
+            <button class="accept-btn" onclick="acceptCookies()">Accept & Continue</button>
             <button class="reject-btn" onclick="rejectCookies()">Decline</button>
-            <button class="accept-btn" onclick="acceptCookies()">Accept</button>
         </div>
     </div>
 
