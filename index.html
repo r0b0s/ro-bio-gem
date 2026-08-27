@@ -1,119 +1,2694 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Professional Biodata</title>
-    
-    <!-- Microsoft Clarity Tracking Code Script Loader -->
+
+
+    <!-- =========================================================
+         MICROSOFT CLARITY
+         Replace YOUR_CLARITY_PROJECT_ID with your real ID.
+         ========================================================= -->
+
     <script>
+
         function loadClarity() {
-            if(window.clarityLoaded) return;
+
+            if (window.clarityLoaded) {
+                return;
+            }
+
             window.clarityLoaded = true;
+
             (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "y7zppa2xme");
+
+                c[a]=c[a]||function(){
+                    (c[a].q=c[a].q||[]).push(arguments)
+                };
+
+                t=l.createElement(r);
+
+                t.async=1;
+
+                t.src=
+                    "https://www.clarity.ms/tag/" + i;
+
+                y=
+                    l.getElementsByTagName(r)[0];
+
+                y.parentNode.insertBefore(
+                    t,
+                    y
+                );
+
+            })(
+                window,
+                document,
+                "clarity",
+                "script",
+                "y7zppa2xme"
+            );
+
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('cookieConsent') === 'accepted') {
-                loadClarity();
-                document.getElementById('cookie-banner').style.display = 'none';
-            }
-        });
     </script>
+
+
+    <!-- =========================================================
+         GOOGLE ANALYTICS 4
+         Replace G-YOUR_MEASUREMENT_ID with your real ID.
+         ========================================================= -->
+
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-NE96JYZV3K">
+    </script>
+
+    <script>
+
+        window.dataLayer =
+            window.dataLayer || [];
+
+        function gtag() {
+
+            dataLayer.push(
+                arguments
+            );
+
+        }
+
+        gtag(
+            'js',
+            new Date()
+        );
+
+        gtag(
+            'config',
+            'G-NE96JYZV3K'
+        );
+
+    </script>
+
+
+    <!-- =========================================================
+         CSS
+         ========================================================= -->
 
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; background: #f4f6f9; }
-        .card { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-bottom: 40px; }
-        .header { text-align: center; border-bottom: 2px solid #eaeaea; padding-bottom: 20px; margin-bottom: 30px; }
-        .header img { width: 140px; height: 140px; object-fit: cover; border-radius: 50%; border: 4px solid #0056b3; }
-        h1 { margin: 10px 0 5px; color: #222; }
-        h2 { color: #0056b3; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 30px; }
-        .section { margin-bottom: 25px; }
 
-        /* Standard Modern Centered Cookie Banner Style */
-        #cookie-banner {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-            width: 90%; max-width: 500px; background: #ffffff; color: #333;
-            padding: 25px; border-radius: 12px; box-sizing: border-box;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 1000; text-align: center;
-            border: 1px solid #e1e4e8;
+
+        * {
+
+            box-sizing:
+                border-box;
+
         }
-        #cookie-banner p { margin: 0 0 20px 0; font-size: 14px; color: #555; line-height: 1.5; }
-        .cookie-buttons { display: flex; flex-direction: column; gap: 10px; }
-        .cookie-buttons button { width: 100%; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 14px; transition: background 0.2s; }
-        .accept-btn { background: #0056b3; color: #fff; }
-        .accept-btn:hover { background: #004085; }
-        .reject-btn { background: #f1f3f5; color: #495057; }
-        .reject-btn:hover { background: #e2e6ea; }
-    </style>
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NE96JYZV3K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-NE96JYZV3K');
-</script>
+
+        body {
+
+            font-family:
+                'Segoe UI',
+                Tahoma,
+                Geneva,
+                Verdana,
+                sans-serif;
+
+            max-width:
+                800px;
+
+            margin:
+                0 auto;
+
+            padding:
+                20px;
+
+            line-height:
+                1.6;
+
+            color:
+                #333;
+
+            background:
+                #f4f6f9;
+
+        }
+
+
+        /* =====================================================
+           MAIN BIODATA CARD
+           ===================================================== */
+
+        .card {
+
+            background:
+                #fff;
+
+            padding:
+                40px;
+
+            border-radius:
+                12px;
+
+            box-shadow:
+                0 4px 15px
+                rgba(0,0,0,0.08);
+
+            margin-bottom:
+                40px;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+
+        .header {
+
+            text-align:
+                center;
+
+            border-bottom:
+                2px solid #eaeaea;
+
+            padding-bottom:
+                20px;
+
+            margin-bottom:
+                30px;
+
+        }
+
+
+        .header img {
+
+            width:
+                140px;
+
+            height:
+                140px;
+
+            object-fit:
+                cover;
+
+            border-radius:
+                50%;
+
+            border:
+                4px solid #0056b3;
+
+        }
+
+
+        h1 {
+
+            margin:
+                10px 0 5px;
+
+            color:
+                #222;
+
+        }
+
+
+        h2 {
+
+            color:
+                #0056b3;
+
+            border-bottom:
+                1px solid #eee;
+
+            padding-bottom:
+                5px;
+
+            margin-top:
+                30px;
+
+        }
+
+
+        .section {
+
+            margin-bottom:
+                25px;
+
+        }
+
+
+        /* =====================================================
+           VIEW PHOTOS BUTTON
+           ===================================================== */
+
+        .view-gallery-container {
+
+            text-align:
+                center;
+
+            margin:
+                25px 0 35px;
+
+        }
+
+
+        .view-gallery-btn {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                13px 24px;
+
+            border:
+                none;
+
+            border-radius:
+                8px;
+
+            background:
+                #0056b3;
+
+            color:
+                white;
+
+            font-size:
+                15px;
+
+            font-weight:
+                600;
+
+            cursor:
+                pointer;
+
+            transition:
+                background 0.2s,
+                transform 0.2s;
+
+        }
+
+
+        .view-gallery-btn:hover {
+
+            background:
+                #004085;
+
+        }
+
+
+        .view-gallery-btn:active {
+
+            transform:
+                scale(0.97);
+
+        }
+
+
+        /* =====================================================
+           PHOTO POPUP / MODAL
+           ===================================================== */
+
+        #photoGalleryModal {
+
+            display:
+                none;
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                2000;
+
+            background:
+                rgba(0,0,0,0.92);
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                20px;
+
+        }
+
+
+        #photoGalleryModal.active {
+
+            display:
+                flex;
+
+        }
+
+
+        /* =====================================================
+           POPUP CONTENT
+           ===================================================== */
+
+        .gallery-modal-content {
+
+            position:
+                relative;
+
+            width:
+                100%;
+
+            max-width:
+                900px;
+
+            max-height:
+                95vh;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            align-items:
+                center;
+
+        }
+
+
+        /* =====================================================
+           POPUP MAIN IMAGE
+           ===================================================== */
+
+        .popup-main-image-container {
+
+            width:
+                100%;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+        }
+
+
+        #popupMainPhoto {
+
+            max-width:
+                90vw;
+
+            max-height:
+                72vh;
+
+            object-fit:
+                contain;
+
+            border-radius:
+                8px;
+
+            user-select:
+                none;
+
+        }
+
+
+        /* =====================================================
+           POPUP CLOSE BUTTON
+           ===================================================== */
+
+        .popup-close-btn {
+
+            position:
+                absolute;
+
+            top:
+                -5px;
+
+            right:
+                0;
+
+            width:
+                45px;
+
+            height:
+                45px;
+
+            border:
+                none;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(255,255,255,0.18);
+
+            color:
+                white;
+
+            font-size:
+                28px;
+
+            cursor:
+                pointer;
+
+            z-index:
+                10;
+
+        }
+
+
+        .popup-close-btn:hover {
+
+            background:
+                rgba(255,255,255,0.35);
+
+        }
+
+
+        /* =====================================================
+           POPUP PREVIOUS / NEXT
+           ===================================================== */
+
+        .popup-nav-btn {
+
+            position:
+                absolute;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            width:
+                50px;
+
+            height:
+                50px;
+
+            border:
+                none;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(255,255,255,0.15);
+
+            color:
+                white;
+
+            font-size:
+                28px;
+
+            cursor:
+                pointer;
+
+            z-index:
+                5;
+
+        }
+
+
+        .popup-nav-btn:hover {
+
+            background:
+                rgba(255,255,255,0.30);
+
+        }
+
+
+        .popup-prev-btn {
+
+            left:
+                10px;
+
+        }
+
+
+        .popup-next-btn {
+
+            right:
+                10px;
+
+        }
+
+
+        /* =====================================================
+           PHOTO COUNT
+           ===================================================== */
+
+        .popup-photo-counter {
+
+            margin-top:
+                10px;
+
+            color:
+                white;
+
+            font-size:
+                14px;
+
+            background:
+                rgba(0,0,0,0.45);
+
+            padding:
+                5px 12px;
+
+            border-radius:
+                20px;
+
+        }
+
+
+        /* =====================================================
+           PHOTO CAPTION
+           ===================================================== */
+
+        .popup-photo-caption {
+
+            margin-top:
+                8px;
+
+            color:
+                #eee;
+
+            font-size:
+                15px;
+
+            text-align:
+                center;
+
+        }
+
+
+        /* =====================================================
+           THUMBNAILS INSIDE POPUP
+           ===================================================== */
+
+        .popup-thumbnails {
+
+            width:
+                100%;
+
+            display:
+                flex;
+
+            gap:
+                8px;
+
+            overflow-x:
+                auto;
+
+            margin-top:
+                15px;
+
+            padding:
+                5px 0;
+
+            justify-content:
+                center;
+
+        }
+
+
+        .popup-thumbnail {
+
+            width:
+                65px;
+
+            height:
+                65px;
+
+            flex:
+                0 0 auto;
+
+            object-fit:
+                cover;
+
+            border:
+                3px solid transparent;
+
+            border-radius:
+                7px;
+
+            cursor:
+                pointer;
+
+            opacity:
+                0.65;
+
+            transition:
+                opacity 0.2s,
+                border 0.2s;
+
+        }
+
+
+        .popup-thumbnail:hover {
+
+            opacity:
+                0.9;
+
+        }
+
+
+        .popup-thumbnail.active {
+
+            opacity:
+                1;
+
+            border-color:
+                #ffffff;
+
+        }
+
+
+        /* =====================================================
+           COOKIE BANNER
+           ===================================================== */
+
+        #cookie-banner {
+
+            position:
+                fixed;
+
+            bottom:
+                20px;
+
+            left:
+                50%;
+
+            transform:
+                translateX(-50%);
+
+            width:
+                90%;
+
+            max-width:
+                500px;
+
+            background:
+                #ffffff;
+
+            color:
+                #333;
+
+            padding:
+                25px;
+
+            border-radius:
+                12px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.20);
+
+            z-index:
+                3000;
+
+            text-align:
+                center;
+
+            border:
+                1px solid #e1e4e8;
+
+        }
+
+
+        #cookie-banner h3 {
+
+            margin-top:
+                0;
+
+        }
+
+
+        #cookie-banner p {
+
+            margin:
+                0 0 20px;
+
+            font-size:
+                14px;
+
+            color:
+                #555;
+
+            line-height:
+                1.5;
+
+        }
+
+
+        .cookie-buttons {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                10px;
+
+        }
+
+
+        .cookie-buttons button {
+
+            width:
+                100%;
+
+            padding:
+                12px;
+
+            border:
+                none;
+
+            border-radius:
+                6px;
+
+            cursor:
+                pointer;
+
+            font-weight:
+                600;
+
+            font-size:
+                14px;
+
+        }
+
+
+        .accept-btn {
+
+            background:
+                #0056b3;
+
+            color:
+                #fff;
+
+        }
+
+
+        .reject-btn {
+
+            background:
+                #f1f3f5;
+
+            color:
+                #495057;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (
+            max-width: 600px
+        ) {
+
+
+            body {
+
+                padding:
+                    10px;
+
+            }
+
+
+            .card {
+
+                padding:
+                    20px;
+
+            }
+
+
+            #popupMainPhoto {
+
+                max-width:
+                    90vw;
+
+                max-height:
+                    65vh;
+
+            }
+
+
+            .popup-nav-btn {
+
+                width:
+                    42px;
+
+                height:
+                    42px;
+
+                font-size:
+                    22px;
+
+            }
+
+
+            .popup-thumbnail {
+
+                width:
+                    55px;
+
+                height:
+                    55px;
+
+            }
+
+
+            .popup-close-btn {
+
+                top:
+                    -50px;
+
+                right:
+                    0;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
 
+
+    <!-- =========================================================
+         MAIN BIODATA
+         ========================================================= -->
+
     <div class="card">
+
+
+        <!-- HEADER -->
+
         <div class="header">
-            <img src="your-photo.jpg" alt="Profile Picture">
-            <h1>Your Full Name</h1>
-            <p>Professional Title / Summary Statement</p>
+
+            <img
+                src="ltst psprt szai.jpeg"
+                alt="Profile Picture"
+            >
+
+            <h1>
+                Robin
+            </h1>
+
+            <p>
+                Systems Engineer / Summary Statement
+            </p>
+
         </div>
 
-        <div class="section" id="education">
-            <h2>Education</h2>
-            <p><strong>Degree Title</strong> — University Name (Graduation Year)</p>
-            <p><strong>High School / Secondary</strong> — Institution Name (Year)</p>
+
+        <!-- =====================================================
+             VIEW PHOTOS BUTTON
+             ===================================================== -->
+
+        <div
+            class="view-gallery-container"
+        >
+
+            <button
+                type="button"
+                class="view-gallery-btn"
+                onclick="openPhotoGallery()"
+            >
+
+                📷
+                View More
+
+            </button>
+
         </div>
 
-        <div class="section" id="experience">
-            <h2>Experience & Career</h2>
-            <p><strong>Current Role</strong> — Company Name (Years active)</p>
-            <p>Brief summary of responsibilities and technical expertise.</p>
+
+        <!-- =====================================================
+             EDUCATION
+             ===================================================== -->
+
+        <div
+            class="section tracked-section"
+            id="education"
+            data-section-id="education"
+            data-section-title="Education"
+        >
+
+            <h2>
+                Education
+            </h2>
+
+            <p>
+
+                <strong>
+                    MCA
+                </strong>
+
+                — KTU
+                (Graduation Year)
+
+            </p>
+
+            <p>
+
+                <strong>
+                    High School / Secondary
+                </strong>
+
+                — Institution Name
+                (Year)
+
+            </p>
+
         </div>
 
-        <div class="section" id="family">
-            <h2>Family Background</h2>
-            <p><strong>Father's Name:</strong> Occupation</p>
-            <p><strong>Mother's Name:</strong> Occupation</p>
+
+        <!-- =====================================================
+             EXPERIENCE
+             ===================================================== -->
+
+        <div
+            class="section tracked-section"
+            id="experience"
+            data-section-id="experience"
+            data-section-title="Experience & Career"
+        >
+
+            <h2>
+                Experience & Career
+            </h2>
+
+            <p>
+
+                <strong>
+                    Current Role
+                </strong>
+
+                — Company Name
+                (Years active)
+
+            </p>
+
+            <p>
+
+                Brief summary of responsibilities
+                and technical expertise.
+
+            </p>
+
         </div>
 
-        <div class="section" id="contact">
-            <h2>Contact Details</h2>
-            <p>Email: your-email@example.com | Phone: +00 0000000000</p>
+
+        <!-- =====================================================
+             FAMILY
+             ===================================================== -->
+
+        <div
+            class="section tracked-section"
+            id="family"
+            data-section-id="family"
+            data-section-title="Family Background"
+        >
+
+            <h2>
+                Family Background
+            </h2>
+
+            <p>
+
+                <strong>
+                    Father's Name:
+                </strong>
+
+                Occupation
+
+            </p>
+
+            <p>
+
+                <strong>
+                    Mother's Name:
+                </strong>
+
+                Occupation
+
+            </p>
+
         </div>
+
+
+        <!-- =====================================================
+             CONTACT
+             ===================================================== -->
+
+        <div
+            class="section tracked-section"
+            id="contact"
+            data-section-id="contact"
+            data-section-title="Contact Details"
+        >
+
+            <h2>
+                Contact Details
+            </h2>
+
+            <p>
+
+                Email:
+                your-email@example.com
+
+                |
+
+                Phone:
+                +91 0000000000
+
+            </p>
+
+        </div>
+
+
     </div>
 
-    <!-- Centered Modal Cookie Consent Banner -->
-    <div id="cookie-banner">
-        <h3>Privacy & Analytics Notice</h3>
-        <p>We use tracking technologies to analyze site performance, device specs, and time spent on sections to improve your viewing experience. Do you accept our analytics policy?</p>
-        <div class="cookie-buttons">
-            <button class="accept-btn" onclick="acceptCookies()">Accept & Continue</button>
-            <button class="reject-btn" onclick="rejectCookies()">Decline</button>
+
+    <!-- =========================================================
+         PHOTO POPUP
+         
+         THIS DOES NOT APPEAR UNTIL
+         "VIEW PHOTOS" IS CLICKED.
+         ========================================================= -->
+
+    <div
+        id="photoGalleryModal"
+        onclick="closePhotoGalleryFromBackground(event)"
+    >
+
+
+        <div
+            class="gallery-modal-content"
+        >
+
+
+            <!-- CLOSE BUTTON -->
+
+            <button
+                type="button"
+                class="popup-close-btn"
+                onclick="closePhotoGallery()"
+                aria-label="Close gallery"
+            >
+
+                &times;
+
+            </button>
+
+
+            <!-- MAIN IMAGE -->
+
+            <div
+                class="popup-main-image-container"
+            >
+
+
+                <!-- PREVIOUS -->
+
+                <button
+                    type="button"
+                    class="popup-nav-btn popup-prev-btn"
+                    onclick="
+                        event.stopPropagation();
+                        previousGalleryPhoto();
+                    "
+                    aria-label="Previous photo"
+                >
+
+                    &#10094;
+
+                </button>
+
+
+                <!-- PHOTO -->
+
+                <img
+                    id="popupMainPhoto"
+                    src=""
+                    alt="Gallery photo"
+                >
+
+
+                <!-- NEXT -->
+
+                <button
+                    type="button"
+                    class="popup-nav-btn popup-next-btn"
+                    onclick="
+                        event.stopPropagation();
+                        nextGalleryPhoto();
+                    "
+                    aria-label="Next photo"
+                >
+
+                    &#10095;
+
+                </button>
+
+            </div>
+
+
+            <!-- PHOTO COUNTER -->
+
+            <div
+                id="popupPhotoCounter"
+                class="popup-photo-counter"
+            >
+
+                1 / 9
+
+            </div>
+
+
+            <!-- PHOTO CAPTION -->
+
+            <div
+                id="popupPhotoCaption"
+                class="popup-photo-caption"
+            >
+
+                Profile Photo
+
+            </div>
+
+
+            <!-- THUMBNAILS -->
+
+            <div
+                id="popupThumbnails"
+                class="popup-thumbnails"
+                onclick="event.stopPropagation()"
+            >
+
+            </div>
+
+
         </div>
+
     </div>
+
+
+    <!-- =========================================================
+         COOKIE CONSENT
+         ========================================================= -->
+
+    <div
+        id="cookie-banner"
+    >
+
+        <h3>
+            Privacy & Analytics Notice
+        </h3>
+
+        <p>
+
+            We use tracking technologies to analyze
+            page performance, sections viewed,
+            approximate time spent and photo
+            interactions.
+
+            Analytics will only be activated after
+            you choose Accept.
+
+        </p>
+
+
+        <div
+            class="cookie-buttons"
+        >
+
+            <button
+                type="button"
+                class="accept-btn"
+                onclick="acceptCookies()"
+            >
+
+                Accept & Continue
+
+            </button>
+
+
+            <button
+                type="button"
+                class="reject-btn"
+                onclick="rejectCookies()"
+            >
+
+                Decline
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
 
     <script>
-        function acceptCookies() {
-            localStorage.setItem('cookieConsent', 'accepted');
-            document.getElementById('cookie-banner').style.display = 'none';
-            loadClarity();
+
+
+        /* =====================================================
+           RECIPIENT TOKEN
+
+           Example:
+
+           yourpage.html?t=ABC123
+
+           This can later be tied to a recipient
+           in your Google Apps Script system.
+           ===================================================== */
+
+        const recipientToken =
+            new URLSearchParams(
+                window.location.search
+            ).get("t")
+            || "direct_visit";
+
+
+        /* =====================================================
+           PHOTO LIST
+           
+           ADD AS MANY PHOTOS AS YOU WANT.
+
+           For example, 9 photos are included below.
+           ===================================================== */
+
+        const photos = [
+
+            {
+                src: "r1.jpeg",
+                title: "Profile Photo"
+            },
+
+            {
+                src: "r2.jpeg",
+                title: "Casual Photo"
+            },
+
+            {
+                src: "r3.jpeg",
+                title: "Traditional Photo"
+            },
+
+            {
+                src: "r4.jpeg",
+                title: "Professional Photo"
+            },
+
+            {
+                src: "r5.jpeg",
+                title: "Travel Photo"
+            },
+
+            {
+                src: "r6.jpeg",
+                title: "Family Photo"
+            },
+
+            {
+                src: "r7.jpeg",
+                title: "Outdoor Photo"
+            },
+
+            {
+                src: "r8.jpeg",
+                title: "Lifestyle Photo"
+            },
+
+            {
+                src: "ltst psprt szai.jpeg",
+                title: "Additional Photo"
+            }
+
+        ];
+
+
+        /* =====================================================
+           CURRENT PHOTO
+           ===================================================== */
+
+        let currentPhotoIndex =
+            0;
+
+
+        /* =====================================================
+           GALLERY OPEN TIME
+           ===================================================== */
+
+        let galleryOpenTime =
+            null;
+
+
+        /* =====================================================
+           PHOTO VIEW START TIME
+           ===================================================== */
+
+        let photoViewStartTime =
+            null;
+
+
+        /* =====================================================
+           GALLERY OPEN STATE
+           ===================================================== */
+
+        let galleryIsOpen =
+            false;
+
+
+        /* =====================================================
+           SECTION TRACKING VARIABLES
+           ===================================================== */
+
+        let currentSection =
+            null;
+
+
+        let sectionStartTime =
+            null;
+
+
+        /* =====================================================
+           ANALYTICS FUNCTION
+           ===================================================== */
+
+        function trackEvent(
+            eventName,
+            parameters = {}
+        ) {
+
+
+            /*
+             * Add anonymous recipient token.
+             */
+
+            parameters.recipient_token =
+                recipientToken;
+
+
+            /*
+             * Google Analytics.
+             */
+
+            if (
+
+                typeof window.gtag ===
+                "function"
+
+                &&
+
+                localStorage.getItem(
+                    "cookieConsent"
+                ) === "accepted"
+
+            ) {
+
+
+                gtag(
+                    "event",
+                    eventName,
+                    parameters
+                );
+
+            }
+
+
+            /*
+             * Microsoft Clarity.
+             */
+
+            if (
+
+                typeof window.clarity ===
+                "function"
+
+                &&
+
+                localStorage.getItem(
+                    "cookieConsent"
+                ) === "accepted"
+
+            ) {
+
+
+                /*
+                 * Event.
+
+                 * Example:
+                 * photo_next
+                 */
+
+                window.clarity(
+                    "event",
+                    eventName
+                );
+
+
+                /*
+                 * Photo name.
+                 */
+
+                if (
+                    parameters.photo_name
+                ) {
+
+                    window.clarity(
+                        "set",
+                        "photo_name",
+                        String(
+                            parameters.photo_name
+                        )
+                    );
+
+                }
+
+
+                /*
+                 * Photo number.
+                 */
+
+                if (
+                    parameters.photo_number
+                ) {
+
+                    window.clarity(
+                        "set",
+                        "photo_number",
+                        String(
+                            parameters.photo_number
+                        )
+                    );
+
+                }
+
+
+                /*
+                 * Gallery name.
+                 */
+
+                if (
+                    parameters.gallery
+                ) {
+
+                    window.clarity(
+                        "set",
+                        "gallery",
+                        String(
+                            parameters.gallery
+                        )
+                    );
+
+                }
+
+            }
+
+
+            /*
+             * Console debugging.
+
+             * You can remove this later.
+             */
+
+            console.log(
+                "Analytics:",
+                eventName,
+                parameters
+            );
+
         }
 
-        function rejectCookies() {
-            localStorage.setItem('cookieConsent', 'declined');
-            document.getElementById('cookie-banner').style.display = 'none';
+
+        /* =====================================================
+           COOKIE CONSENT
+           ===================================================== */
+
+        window.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+
+                const consent =
+                    localStorage.getItem(
+                        "cookieConsent"
+                    );
+
+
+                if (
+                    consent === "accepted"
+                ) {
+
+
+                    document.getElementById(
+                        "cookie-banner"
+                    ).style.display =
+                        "none";
+
+
+                    loadClarity();
+
+                }
+
+
+                if (
+                    consent === "declined"
+                ) {
+
+
+                    document.getElementById(
+                        "cookie-banner"
+                    ).style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        function acceptCookies() {
+
+
+            localStorage.setItem(
+                "cookieConsent",
+                "accepted"
+            );
+
+
+            document.getElementById(
+                "cookie-banner"
+            ).style.display =
+                "none";
+
+
+            loadClarity();
+
+
+            trackEvent(
+                "analytics_consent_accepted"
+            );
+
         }
+
+
+        function rejectCookies() {
+
+
+            localStorage.setItem(
+                "cookieConsent",
+                "declined"
+            );
+
+
+            document.getElementById(
+                "cookie-banner"
+            ).style.display =
+                "none";
+
+        }
+
+
+        /* =====================================================
+           BUILD THUMBNAILS
+           
+           Thumbnails are ONLY inside the popup.
+           ===================================================== */
+
+        function buildGalleryThumbnails() {
+
+
+            const container =
+                document.getElementById(
+                    "popupThumbnails"
+                );
+
+
+            container.innerHTML =
+                "";
+
+
+            photos.forEach(
+                function(
+                    photo,
+                    index
+                ) {
+
+
+                    const thumbnail =
+                        document.createElement(
+                            "img"
+                        );
+
+
+                    thumbnail.src =
+                        photo.src;
+
+
+                    thumbnail.alt =
+                        photo.title;
+
+
+                    thumbnail.className =
+                        "popup-thumbnail";
+
+
+                    thumbnail.onclick =
+                        function() {
+
+
+                            showGalleryPhoto(
+                                index,
+                                "thumbnail"
+                            );
+
+                        };
+
+
+                    container.appendChild(
+                        thumbnail
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           OPEN POPUP
+           ===================================================== */
+
+        function openPhotoGallery() {
+
+
+            galleryIsOpen =
+                true;
+
+
+            galleryOpenTime =
+                Date.now();
+
+
+            photoViewStartTime =
+                Date.now();
+
+
+            currentPhotoIndex =
+                0;
+
+
+            buildGalleryThumbnails();
+
+
+            showGalleryPhoto(
+                0,
+                "gallery_open"
+            );
+
+
+            document
+                .getElementById(
+                    "photoGalleryModal"
+                )
+                .classList.add(
+                    "active"
+                );
+
+
+            /*
+             * Prevent background scrolling.
+             */
+
+            document.body.style.overflow =
+                "hidden";
+
+
+            /*
+             * Track gallery button click.
+             */
+
+            trackEvent(
+                "photo_gallery_open",
+                {
+
+                    gallery:
+                        "profile_gallery",
+
+                    total_photos:
+                        photos.length
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           CLOSE POPUP
+           ===================================================== */
+
+        function closePhotoGallery() {
+
+
+            if (
+                !galleryIsOpen
+            ) {
+
+                return;
+
+            }
+
+
+            /*
+             * Record current photo duration.
+             */
+
+            recordCurrentPhotoDuration();
+
+
+            /*
+             * Record total gallery duration.
+             */
+
+            const galleryDuration =
+                Math.round(
+
+                    (
+                        Date.now()
+                        -
+                        galleryOpenTime
+                    ) / 1000
+
+                );
+
+
+            const photo =
+                photos[
+                    currentPhotoIndex
+                ];
+
+
+            trackEvent(
+                "photo_gallery_close",
+                {
+
+                    gallery:
+                        "profile_gallery",
+
+                    total_gallery_duration:
+                        galleryDuration,
+
+                    photo_name:
+                        photo.title,
+
+                    photo_number:
+                        currentPhotoIndex + 1
+
+                }
+            );
+
+
+            document
+                .getElementById(
+                    "photoGalleryModal"
+                )
+                .classList.remove(
+                    "active"
+                );
+
+
+            document.body.style.overflow =
+                "";
+
+
+            galleryIsOpen =
+                false;
+
+
+            galleryOpenTime =
+                null;
+
+
+            photoViewStartTime =
+                null;
+
+        }
+
+
+        /* =====================================================
+           CLOSE WHEN BACKGROUND IS CLICKED
+           ===================================================== */
+
+        function closePhotoGalleryFromBackground(
+            event
+        ) {
+
+
+            if (
+                event.target.id ===
+                "photoGalleryModal"
+            ) {
+
+                closePhotoGallery();
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SHOW SELECTED PHOTO
+           ===================================================== */
+
+        function showGalleryPhoto(
+            index,
+            action
+        ) {
+
+
+            if (
+                index < 0
+                ||
+                index >= photos.length
+            ) {
+
+                return;
+
+            }
+
+
+            /*
+             * If changing photo,
+             * record time spent on previous photo.
+             */
+
+            if (
+                galleryIsOpen
+                &&
+                photoViewStartTime !== null
+                &&
+                index !== currentPhotoIndex
+            ) {
+
+                recordCurrentPhotoDuration();
+
+            }
+
+
+            currentPhotoIndex =
+                index;
+
+
+            photoViewStartTime =
+                Date.now();
+
+
+            const photo =
+                photos[
+                    currentPhotoIndex
+                ];
+
+
+            /*
+             * Update main popup photo.
+             */
+
+            document.getElementById(
+                "popupMainPhoto"
+            ).src =
+                photo.src;
+
+
+            document.getElementById(
+                "popupMainPhoto"
+            ).alt =
+                photo.title;
+
+
+            /*
+             * Counter.
+             */
+
+            document.getElementById(
+                "popupPhotoCounter"
+            ).textContent =
+
+                (
+                    currentPhotoIndex + 1
+                )
+                +
+                " / "
+                +
+                photos.length;
+
+
+            /*
+             * Caption.
+             */
+
+            document.getElementById(
+                "popupPhotoCaption"
+            ).textContent =
+                photo.title;
+
+
+            /*
+             * Highlight thumbnail.
+             */
+
+            document
+                .querySelectorAll(
+                    ".popup-thumbnail"
+                )
+                .forEach(
+                    function(
+                        thumbnail,
+                        i
+                    ) {
+
+                        thumbnail.classList.toggle(
+                            "active",
+                            i ===
+                            currentPhotoIndex
+                        );
+
+                    }
+                );
+
+
+            /*
+             * Track action.
+             */
+
+            if (
+                action === "gallery_open"
+            ) {
+
+
+                trackEvent(
+                    "photo_first_displayed",
+                    {
+
+                        photo_name:
+                            photo.title,
+
+                        photo_number:
+                            currentPhotoIndex + 1,
+
+                        total_photos:
+                            photos.length,
+
+                        gallery:
+                            "profile_gallery"
+
+                    }
+                );
+
+            }
+
+
+            if (
+                action === "next"
+            ) {
+
+
+                trackEvent(
+                    "photo_next",
+                    {
+
+                        photo_name:
+                            photo.title,
+
+                        photo_number:
+                            currentPhotoIndex + 1,
+
+                        total_photos:
+                            photos.length,
+
+                        gallery:
+                            "profile_gallery"
+
+                    }
+                );
+
+            }
+
+
+            if (
+                action === "previous"
+            ) {
+
+
+                trackEvent(
+                    "photo_previous",
+                    {
+
+                        photo_name:
+                            photo.title,
+
+                        photo_number:
+                            currentPhotoIndex + 1,
+
+                        total_photos:
+                            photos.length,
+
+                        gallery:
+                            "profile_gallery"
+
+                    }
+                );
+
+            }
+
+
+            if (
+                action === "thumbnail"
+            ) {
+
+
+                trackEvent(
+                    "photo_thumbnail_click",
+                    {
+
+                        photo_name:
+                            photo.title,
+
+                        photo_number:
+                            currentPhotoIndex + 1,
+
+                        total_photos:
+                            photos.length,
+
+                        gallery:
+                            "profile_gallery"
+
+                    }
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           NEXT
+           ===================================================== */
+
+        function nextGalleryPhoto() {
+
+
+            const nextIndex =
+
+                (
+                    currentPhotoIndex
+                    +
+                    1
+                )
+                %
+                photos.length;
+
+
+            showGalleryPhoto(
+                nextIndex,
+                "next"
+            );
+
+        }
+
+
+        /* =====================================================
+           PREVIOUS
+           ===================================================== */
+
+        function previousGalleryPhoto() {
+
+
+            const previousIndex =
+
+                (
+                    currentPhotoIndex
+                    -
+                    1
+                    +
+                    photos.length
+                )
+                %
+                photos.length;
+
+
+            showGalleryPhoto(
+                previousIndex,
+                "previous"
+            );
+
+        }
+
+
+        /* =====================================================
+           PHOTO TIME TRACKING
+           ===================================================== */
+
+        function recordCurrentPhotoDuration() {
+
+
+            if (
+                photoViewStartTime ===
+                null
+            ) {
+
+                return;
+
+            }
+
+
+            const duration =
+                Math.round(
+
+                    (
+                        Date.now()
+                        -
+                        photoViewStartTime
+                    ) / 1000
+
+                );
+
+
+            /*
+             * Don't send extremely short
+             * meaningless durations.
+             */
+
+            if (
+                duration < 1
+            ) {
+
+                return;
+
+            }
+
+
+            const photo =
+                photos[
+                    currentPhotoIndex
+                ];
+
+
+            trackEvent(
+                "photo_view_duration",
+                {
+
+                    photo_name:
+                        photo.title,
+
+                    photo_number:
+                        currentPhotoIndex + 1,
+
+                    duration_seconds:
+                        duration,
+
+                    gallery:
+                        "profile_gallery"
+
+                }
+            );
+
+
+            photoViewStartTime =
+                Date.now();
+
+        }
+
+
+        /* =====================================================
+           SECTION TRACKING
+           ===================================================== */
+
+        function initializeSectionTracking() {
+
+
+            const sections =
+                document.querySelectorAll(
+                    ".tracked-section"
+                );
+
+
+            const observer =
+                new IntersectionObserver(
+
+                    function(entries) {
+
+
+                        entries.forEach(
+                            function(entry) {
+
+
+                                if (
+
+                                    entry.isIntersecting
+                                    &&
+                                    entry.intersectionRatio
+                                    >=
+                                    0.50
+
+                                ) {
+
+
+                                    const section =
+                                        entry.target;
+
+
+                                    const sectionId =
+                                        section.dataset
+                                            .sectionId;
+
+
+                                    const sectionTitle =
+                                        section.dataset
+                                            .sectionTitle;
+
+
+                                    if (
+                                        currentSection
+                                        !==
+                                        sectionId
+                                    ) {
+
+
+                                        /*
+                                         * Finish old section.
+                                         */
+
+                                        finishCurrentSection();
+
+
+                                        /*
+                                         * Start new section.
+                                         */
+
+                                        currentSection =
+                                            sectionId;
+
+
+                                        sectionStartTime =
+                                            Date.now();
+
+
+                                        trackEvent(
+                                            "section_view",
+                                            {
+
+                                                section_id:
+                                                    sectionId,
+
+                                                section_name:
+                                                    sectionTitle
+
+                                            }
+                                        );
+
+                                    }
+
+                                }
+
+                            }
+                        );
+
+                    },
+
+                    {
+
+                        threshold:
+                            [0.50]
+
+                    }
+
+                );
+
+
+            sections.forEach(
+                function(section) {
+
+                    observer.observe(
+                        section
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           SECTION DURATION
+           ===================================================== */
+
+        function finishCurrentSection() {
+
+
+            if (
+                !currentSection
+                ||
+                !sectionStartTime
+            ) {
+
+                return;
+
+            }
+
+
+            const duration =
+                Math.round(
+
+                    (
+                        Date.now()
+                        -
+                        sectionStartTime
+                    ) / 1000
+
+                );
+
+
+            const sectionElement =
+                document.querySelector(
+                    '[data-section-id="' +
+                    currentSection +
+                    '"]'
+                );
+
+
+            const sectionTitle =
+                sectionElement
+                ?
+                sectionElement.dataset
+                    .sectionTitle
+                :
+                currentSection;
+
+
+            trackEvent(
+                "section_duration",
+                {
+
+                    section_id:
+                        currentSection,
+
+                    section_name:
+                        sectionTitle,
+
+                    duration_seconds:
+                        duration
+
+                }
+            );
+
+
+            currentSection =
+                null;
+
+
+            sectionStartTime =
+                null;
+
+        }
+
+
+        /* =====================================================
+           SCROLL TRACKING
+           ===================================================== */
+
+        window.addEventListener(
+            "scroll",
+            function() {
+
+
+                const documentHeight =
+                    document.documentElement
+                        .scrollHeight;
+
+
+                const viewportHeight =
+                    window.innerHeight;
+
+
+                const maximumScroll =
+                    documentHeight -
+                    viewportHeight;
+
+
+                if (
+                    maximumScroll <= 0
+                ) {
+
+                    return;
+
+                }
+
+
+                const percentage =
+                    Math.round(
+
+                        (
+                            window.scrollY
+                            /
+                            maximumScroll
+                        )
+                        *
+                        100
+
+                    );
+
+
+                const milestones =
+                    [
+                        25,
+                        50,
+                        75,
+                        90
+                    ];
+
+
+                milestones.forEach(
+                    function(mark) {
+
+
+                        if (
+                            percentage >= mark
+                        ) {
+
+
+                            const key =
+                                "scroll_" +
+                                mark;
+
+
+                            if (
+                                !sessionStorage
+                                    .getItem(
+                                        key
+                                    )
+                            ) {
+
+
+                                sessionStorage.setItem(
+                                    key,
+                                    "1"
+                                );
+
+
+                                trackEvent(
+                                    "scroll_depth",
+                                    {
+
+                                        percentage:
+                                            mark
+
+                                    }
+                                );
+
+                            }
+
+                        }
+
+                    }
+                );
+
+            },
+
+            {
+                passive:
+                    true
+            }
+
+        );
+
+
+        /* =====================================================
+           PAGE OPEN
+           ===================================================== */
+
+        window.addEventListener(
+            "load",
+            function() {
+
+
+                trackEvent(
+                    "page_open",
+                    {
+
+                        screen_width:
+                            window.innerWidth,
+
+                        screen_height:
+                            window.innerHeight
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           KEYBOARD SUPPORT
+
+           LEFT  = Previous
+           RIGHT = Next
+           ESC   = Close
+           ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+
+                if (
+                    !galleryIsOpen
+                ) {
+
+                    return;
+
+                }
+
+
+                if (
+                    event.key ===
+                    "ArrowRight"
+                ) {
+
+                    nextGalleryPhoto();
+
+                }
+
+
+                if (
+                    event.key ===
+                    "ArrowLeft"
+                ) {
+
+                    previousGalleryPhoto();
+
+                }
+
+
+                if (
+                    event.key ===
+                    "Escape"
+                ) {
+
+                    closePhotoGallery();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           PAGE LEAVE
+           ===================================================== */
+
+        window.addEventListener(
+            "pagehide",
+            function() {
+
+
+                /*
+                 * Save section timing.
+                 */
+
+                finishCurrentSection();
+
+
+                /*
+                 * Save photo timing.
+                 */
+
+                if (
+                    galleryIsOpen
+                ) {
+
+                    recordCurrentPhotoDuration();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           INITIALIZE
+           ===================================================== */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                initializeSectionTracking();
+
+            }
+        );
+
+
     </script>
+
 </body>
+
 </html>
