@@ -41,6 +41,20 @@ const ANALYTICS_CONFIG = {
 };
 
 
+/*
+ * These are the "unedited placeholder" sentinels.
+ * They are intentionally different from any real ID format,
+ * so a real Clarity ID or GA4 Measurement ID will never
+ * accidentally match them and get blocked.
+ */
+
+const UNCONFIGURED_CLARITY_ID =
+    "y7zppa2xme";
+
+const UNCONFIGURED_GA_ID =
+    "G-NE96JYZV3K";
+
+
 /* =============================================================
    2. RECIPIENT TOKEN
    -------------------------------------------------------------
@@ -121,7 +135,7 @@ function loadGoogleAnalytics() {
         ANALYTICS_CONFIG
             .googleMeasurementId
             ===
-            "G-NE96JYZV3K"
+            UNCONFIGURED_GA_ID
 
     ) {
 
@@ -240,7 +254,7 @@ function loadClarity() {
         ANALYTICS_CONFIG
             .clarityProjectId
             ===
-            "y7zppa2xme"
+            UNCONFIGURED_CLARITY_ID
 
     ) {
 

@@ -51,12 +51,12 @@ const PHOTOS = [
 
     {
         src: "img/photo2.jpeg",
-        title: "Casual Photo"
+        title: "Professional Photo"
     },
 
     {
         src: "img/photo3.jpeg",
-        title: "Traditional Photo"
+        title: "Outdoor Photo"
     },
 
     {
@@ -66,12 +66,12 @@ const PHOTOS = [
 
     {
         src: "img/photo5.jpeg",
-        title: "Travel Photo"
+        title: "Casual Photo"
     },
 
     {
         src: "img/photo6.jpeg",
-        title: "Family Photo"
+        title: "Professional Photo"
     },
 
     {
@@ -81,7 +81,7 @@ const PHOTOS = [
 
     {
         src: "img/photo8.jpeg",
-        title: "Lifestyle Photo"
+        title: "Casual Photo"
     },
 
     {
