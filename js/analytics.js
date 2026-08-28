@@ -43,16 +43,18 @@ const ANALYTICS_CONFIG = {
 
 /*
  * These are the "unedited placeholder" sentinels.
- * They are intentionally different from any real ID format,
- * so a real Clarity ID or GA4 Measurement ID will never
- * accidentally match them and get blocked.
+ * They must NEVER be set to the same value as your real
+ * Clarity ID or GA4 ID above — if they match, the loader
+ * below will treat your real ID as "not configured yet"
+ * and silently refuse to load. Leave these two lines exactly
+ * as they are; only edit ANALYTICS_CONFIG above this block.
  */
 
 const UNCONFIGURED_CLARITY_ID =
-    "y7zppa2xme";
+    "REPLACE_WITH_YOUR_CLARITY_PROJECT_ID";
 
 const UNCONFIGURED_GA_ID =
-    "G-NE96JYZV3K";
+    "REPLACE_WITH_YOUR_GA4_MEASUREMENT_ID";
 
 
 /* =============================================================
