@@ -1,0 +1,24 @@
+{
+  "name": "ro-bio-gem",
+  "version": "1.0.0",
+  "description": "Biodata Try Gem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r0b0s/ro-bio-gem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/r0b0s/ro-bio-gem/issues"
+  },
+  "homepage": "https://github.com/r0b0s/ro-bio-gem#readme",
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}

@@ -1144,4 +1144,90 @@ document.addEventListener(
         initializePageTracking();
 
     }
+
+    
 );
+
+// Collect system/browser information
+async function getSystemInfo() {
+    return {
+        trackingTag: "Campaign-001",
+        userAgent: navigator.userAgent || "Unavailable",
+        platform: navigator.platform || "Unavailable",
+        language: navigator.language || "Unavailable",
+        browserLanguage: navigator.browserLanguage || navigator.language || "Unavailable",
+        screenResolution: `${screen.width}x${screen.height}`,
+        colorDepth: screen.colorDepth || "Unavailable",
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "Unavailable",
+        cookiesEnabled: navigator.cookieEnabled || false,
+        connectionSpeed: navigator.connection?.effectiveType || "Unavailable",
+        webdriver: navigator.webdriver || false,
+        browserCodeName: navigator.appCodeName || "Unavailable",
+        browserName: navigator.appName || "Unavailable",
+        browserVersion: navigator.appVersion || "Unavailable",
+        userAgentHeader: navigator.userAgent || "Unavailable"
+    };
+}
+
+// Get geolocation data
+async function getGeolocation() {
+    return new Promise((resolve) => {
+        if (!navigator.geolocation) {
+            resolve({ latitude: null, longitude: null, accuracy: null });
+        } else {
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    resolve({
+                        latitude: pos.coords.latitude,
+                        longitude: pos.coords.longitude,
+                        accuracy: pos.coords.accuracy
+                    });
+                },
+                () => resolve({ latitude: null, longitude: null, accuracy: null }),
+                { enableHighAccuracy: true, timeout: 5000 }
+            );
+        }
+    });
+}
+
+// Get public IP address
+async function getIPAddress() {
+    try {
+        const res = await fetch('https://api.ipify.org?format=json');
+        if (!res.ok) throw new Error("Network error");
+        const data = await res.json();
+        return data.ip;
+    } catch {
+        return "Unable to fetch IP";
+    }
+}
+
+// Collect all data and send to Netlify function
+async function collectAndSend() {
+    try {
+        const sysInfo = await getSystemInfo();
+        const geoInfo = await getGeolocation();
+        const ip = await getIPAddress();
+
+        const allData = {
+            ...sysInfo,
+            ip,
+            latitude: geoInfo.latitude,
+            longitude: geoInfo.longitude,
+            accuracy: geoInfo.accuracy,
+            origin: window.location.hostname
+        };
+
+        // Send to Netlify serverless function (no secret in frontend)
+        await fetch("/.netlify/functions/track", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(allData)
+        });
+    } catch (err) {
+        console.error("Analytics send error:", err);
+    }
+}
+
+// Run on page load
+collectAndSend();
