@@ -33,8 +33,5 @@ google-services.json
 # Android Profiling
 *.hprof
 
-# Local Netlify folder
-.netlify
-
 # Ignore environment files
 .env
