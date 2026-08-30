@@ -7,6 +7,41 @@
          BASIC PAGE SETTINGS
          ===================================================== -->
 
+        <script>
+            (function enforceLinkExpiry() {
+
+                var LINK_EXPIRY_DAYS = 3; // <-- change this number: 2, 3, etc.
+
+                var token =
+                    new URLSearchParams(window.location.search).get("t")
+                    || "direct_visit";
+
+                var storageKey = "biodata_first_visit_" + token;
+                var now = Date.now();
+                var firstVisit = localStorage.getItem(storageKey);
+
+                if (!firstVisit) {
+                    firstVisit = now;
+                    localStorage.setItem(storageKey, String(firstVisit));
+                } else {
+                    firstVisit = parseInt(firstVisit, 10);
+                }
+
+                var expiryTime = firstVisit + (LINK_EXPIRY_DAYS * 24 * 60 * 60 * 1000);
+
+                if (now > expiryTime) {
+                    document.documentElement.innerHTML =
+                        '<head><meta charset="UTF-8"></head><body>' +
+                        '<div style="display:flex;align-items:center;justify-content:center;' +
+                        'height:100vh;font-family:sans-serif;text-align:center;padding:20px;">' +
+                        '<div><h2>This link has expired</h2>' +
+                        '<p>Please contact the sender for a new link.</p></div></div>' +
+                        '</body>';
+                }
+
+            })();
+        </script>
+
     <meta charset="UTF-8">
 
     <!-- Makes the website work properly on mobile phones -->

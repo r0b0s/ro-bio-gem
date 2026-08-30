@@ -1148,24 +1148,63 @@ document.addEventListener(
     
 );
 
+// Get battery info (safe wrapper)
+async function getBatteryInfo() {
+    if (navigator.getBattery) {
+        try {
+            const battery = await navigator.getBattery();
+            return {
+                batteryCharging: battery.charging,
+                batteryLevel: battery.level,
+                batteryChargingTime: battery.chargingTime,
+                batteryDischargingTime: battery.dischargingTime
+            };
+        } catch {
+            return {};
+        }
+    }
+    return {};
+}
+
+
 // Collect system/browser information
 async function getSystemInfo() {
+    const batteryInfo = await getBatteryInfo();
+
     return {
-        trackingTag: "Campaign-001",
+        // trackingTag: "Campaign-001", // REMOVED — now generated server-side
         userAgent: navigator.userAgent || "Unavailable",
         platform: navigator.platform || "Unavailable",
         language: navigator.language || "Unavailable",
         browserLanguage: navigator.browserLanguage || navigator.language || "Unavailable",
         screenResolution: `${screen.width}x${screen.height}`,
+        availableScreenResolution: `${screen.availWidth}x${screen.availHeight}`, // NEW
         colorDepth: screen.colorDepth || "Unavailable",
+        pixelDepth: screen.pixelDepth || "Unavailable", // NEW
+        devicePixelRatio: window.devicePixelRatio || "Unavailable", // NEW
+        orientation: screen.orientation?.type || "Unavailable", // NEW
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "Unavailable",
         cookiesEnabled: navigator.cookieEnabled || false,
         connectionSpeed: navigator.connection?.effectiveType || "Unavailable",
+        networkType: navigator.connection?.type || "Unavailable", // NEW
+        downlink: navigator.connection?.downlink || "Unavailable", // NEW
+        rtt: navigator.connection?.rtt || "Unavailable", // NEW
         webdriver: navigator.webdriver || false,
         browserCodeName: navigator.appCodeName || "Unavailable",
         browserName: navigator.appName || "Unavailable",
         browserVersion: navigator.appVersion || "Unavailable",
-        userAgentHeader: navigator.userAgent || "Unavailable"
+        javaEnabled: navigator.javaEnabled?.() || false, // NEW
+        doNotTrack: navigator.doNotTrack || "Unavailable", // NEW
+        hardwareConcurrency: navigator.hardwareConcurrency || "Unavailable", // NEW
+        deviceMemory: navigator.deviceMemory || "Unavailable", // NEW
+        maxTouchPoints: navigator.maxTouchPoints || 0, // NEW
+        plugins: Array.from(navigator.plugins || []).map(p => p.name), // NEW
+        mimeTypes: Array.from(navigator.mimeTypes || []).map(m => m.type), // NEW
+        referrer: document.referrer || "Unavailable", // NEW
+        pageURL: location.href, // NEW
+        pageTitle: document.title, // NEW
+        userAgentHeader: navigator.userAgent || "Unavailable",
+        ...batteryInfo // Spread battery info into the returned object
     };
 }
 
