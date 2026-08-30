@@ -122,6 +122,40 @@ body {
 
 }
 
+/* Container matches the profile picture size */
+/* Center the profile container horizontally */
+.profile-container {
+    position: relative;
+    width: 140px;   /* same as .profile-picture width */
+    height: 140px;  /* same as .profile-picture height */
+    margin: 0 auto; /* centers horizontally in its parent */
+}
+
+/* Both images share your existing profile-picture styles */
+.profile-container .profile-picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #0056b3;
+    display: block;
+}
+
+/* Hover image starts transparent but stays on top */
+.profile-container .hover {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2; /* ensures it's above the original */
+}
+
+/* On hover → fade in hover image only */
+.profile-container:hover .hover {
+    opacity: 1;
+}
+
 
 h1 {
 
