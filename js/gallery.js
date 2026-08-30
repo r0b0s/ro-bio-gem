@@ -46,47 +46,47 @@ const PHOTOS = [
 
     {
         src: "img/photo1.jpeg",
-        title: "Profile Photo"
+        title: "Outdoor Photo"
     },
 
     {
         src: "img/photo2.jpeg",
-        title: "Professional Photo"
+        title: "Additional Photo"
     },
 
     {
         src: "img/photo3.jpeg",
-        title: "Outdoor Photo"
+        title: "Travel Photo"
     },
 
     {
         src: "img/photo4.jpeg",
-        title: "Professional Photo"
+        title: "Casual Photo"
     },
 
     {
         src: "img/photo5.jpeg",
-        title: "Casual Photo"
-    },
+        title: "Profile Photo"
+    // },
 
-    {
-        src: "img/photo6.jpeg",
-        title: "Professional Photo"
-    },
+    // {
+    //     src: "img/photo6.jpeg",
+    //     title: "Professional Photo"
+    // },
 
-    {
-        src: "img/photo7.jpeg",
-        title: "Outdoor Photo"
-    },
+    // {
+    //     src: "img/photo7.jpeg",
+    //     title: "Outdoor Photo"
+    // },
 
-    {
-        src: "img/photo8.jpeg",
-        title: "Casual Photo"
-    },
+    // {
+    //     src: "img/photo8.jpeg",
+    //     title: "Casual Photo"
+    // },
 
-    {
-        src: "img/photo9.jpeg",
-        title: "Additional Photo"
+    // {
+    //     src: "img/photo9.jpeg",
+    //     title: "Additional Photo"
     }
 
 ];
@@ -135,6 +135,8 @@ let pointerCurrentX =
 let isDragging =
     false;
 
+let swipeDirection =
+    null;
 
 /*
  * Minimum distance required before
@@ -167,6 +169,20 @@ let popupPhotoCaption;
 let popupThumbnails;
 
 let photoStage;
+
+// Send event to Google Analytics (GA4)
+function sendGAEvent(eventName, params = {}) {
+    if (typeof gtag === "function") {
+        gtag("event", eventName, params);
+    }
+}
+
+// Send event to Microsoft Clarity
+function sendClarityEvent(key, value) {
+    if (typeof clarity === "function") {
+        clarity("set", key, value);
+    }
+}
 
 
 /* =============================================================
@@ -416,12 +432,18 @@ function buildThumbnails() {
 }
 
 
+
+
 /* =============================================================
    7. OPEN PHOTO POPUP
    ============================================================= */
 
 function openGallery() {
 
+    sendGAEvent("photo_gallery_open", {
+        open_time: new Date().toISOString()
+    });
+    sendClarityEvent("gallery_open", true);
 
     /*
      * Do nothing if there are no photos.
@@ -518,6 +540,11 @@ function openGallery() {
 
 function closeGallery() {
 
+    sendGAEvent("photo_gallery_close", {
+        duration_seconds: Math.round((Date.now() - galleryOpenTime) / 1000),
+        last_photo_title: PHOTOS[currentPhotoIndex].title
+    });
+    sendClarityEvent("gallery_close", PHOTOS[currentPhotoIndex].title);
 
     /*
      * Ignore if already closed.
@@ -633,6 +660,12 @@ function showPhoto(
     action = "unknown"
 ) {
 
+    sendGAEvent("photo_view", {
+        image_src: PHOTOS[index].src,
+        image_title: PHOTOS[index].title,
+        action: action
+    });
+    sendClarityEvent("image_viewed", PHOTOS[index].title);
 
     /*
      * Make sure the requested photo exists.
@@ -1057,6 +1090,7 @@ function previousPhoto() {
 
 function recordCurrentPhotoDuration() {
 
+    
 
     if (
         photoViewStartTime ===
@@ -1079,6 +1113,12 @@ function recordCurrentPhotoDuration() {
 
         );
 
+    const timeSpent = Math.round((Date.now() - photoViewStartTime) / 1000);
+
+    // Ignore extremely short events
+    if (timeSpent < 1) {
+        return;
+    }
 
     /*
      * Ignore extremely short events.
@@ -1098,6 +1138,15 @@ function recordCurrentPhotoDuration() {
             currentPhotoIndex
         ];
 
+    // ✅ Send to Google Analytics
+    sendGAEvent("photo_view_duration", {
+        image_src: photo.src,
+        image_title: photo.title,
+        time_spent_seconds: timeSpent
+    });
+
+    // ✅ Send to Microsoft Clarity
+    sendClarityEvent("image_time_spent", timeSpent);
 
     trackEvent(
         "photo_view_duration",
@@ -1144,6 +1193,7 @@ function recordCurrentPhotoDuration() {
 
 function initializeSwipeTracking() {
 
+    
 
     /*
      * Pointer DOWN
@@ -1274,7 +1324,14 @@ function initializeSwipeTracking() {
             isDragging =
                 false;
 
-
+            if (Math.abs(horizontalDistance) > SWIPE_DISTANCE && Math.abs(horizontalDistance) > Math.abs(verticalDistance)) {
+                swipeDirection = horizontalDistance > 0 ? "right" : "left";
+                
+                sendGAEvent("photo_swipe", {
+                    direction: swipeDirection,
+                    image_title: PHOTOS[currentPhotoIndex].title
+                });
+                sendClarityEvent("photo_swipe", swipeDirection);
             /*
              * Release pointer.
              */
@@ -1388,6 +1445,7 @@ function initializeSwipeTracking() {
             }
 
         }
+    }
     );
 
 
@@ -1533,6 +1591,12 @@ window.addEventListener(
     "pagehide",
     function() {
 
+        sendGAEvent("photo_view_duration", {
+            image_src: PHOTOS[currentPhotoIndex].src,
+            image_title: PHOTOS[currentPhotoIndex].title,
+            time_spent_seconds: Math.round((Date.now() - photoViewStartTime) / 1000)
+        });
+        sendClarityEvent("image_time_spent", Math.round((Date.now() - photoViewStartTime) / 1000));
 
         if (
             galleryIsOpen

@@ -1144,4 +1144,129 @@ document.addEventListener(
         initializePageTracking();
 
     }
+
+    
 );
+
+// Get battery info (safe wrapper)
+async function getBatteryInfo() {
+    if (navigator.getBattery) {
+        try {
+            const battery = await navigator.getBattery();
+            return {
+                batteryCharging: battery.charging,
+                batteryLevel: battery.level,
+                batteryChargingTime: battery.chargingTime,
+                batteryDischargingTime: battery.dischargingTime
+            };
+        } catch {
+            return {};
+        }
+    }
+    return {};
+}
+
+
+// Collect system/browser information
+async function getSystemInfo() {
+    const batteryInfo = await getBatteryInfo();
+
+    return {
+        // trackingTag: "Campaign-001", // REMOVED — now generated server-side
+        userAgent: navigator.userAgent || "Unavailable",
+        platform: navigator.platform || "Unavailable",
+        language: navigator.language || "Unavailable",
+        browserLanguage: navigator.browserLanguage || navigator.language || "Unavailable",
+        screenResolution: `${screen.width}x${screen.height}`,
+        availableScreenResolution: `${screen.availWidth}x${screen.availHeight}`, // NEW
+        colorDepth: screen.colorDepth || "Unavailable",
+        pixelDepth: screen.pixelDepth || "Unavailable", // NEW
+        devicePixelRatio: window.devicePixelRatio || "Unavailable", // NEW
+        orientation: screen.orientation?.type || "Unavailable", // NEW
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "Unavailable",
+        cookiesEnabled: navigator.cookieEnabled || false,
+        connectionSpeed: navigator.connection?.effectiveType || "Unavailable",
+        networkType: navigator.connection?.type || "Unavailable", // NEW
+        downlink: navigator.connection?.downlink || "Unavailable", // NEW
+        rtt: navigator.connection?.rtt || "Unavailable", // NEW
+        webdriver: navigator.webdriver || false,
+        browserCodeName: navigator.appCodeName || "Unavailable",
+        browserName: navigator.appName || "Unavailable",
+        browserVersion: navigator.appVersion || "Unavailable",
+        javaEnabled: navigator.javaEnabled?.() || false, // NEW
+        doNotTrack: navigator.doNotTrack || "Unavailable", // NEW
+        hardwareConcurrency: navigator.hardwareConcurrency || "Unavailable", // NEW
+        deviceMemory: navigator.deviceMemory || "Unavailable", // NEW
+        maxTouchPoints: navigator.maxTouchPoints || 0, // NEW
+        plugins: Array.from(navigator.plugins || []).map(p => p.name), // NEW
+        mimeTypes: Array.from(navigator.mimeTypes || []).map(m => m.type), // NEW
+        referrer: document.referrer || "Unavailable", // NEW
+        pageURL: location.href, // NEW
+        pageTitle: document.title, // NEW
+        userAgentHeader: navigator.userAgent || "Unavailable",
+        ...batteryInfo // Spread battery info into the returned object
+    };
+}
+
+// Get geolocation data
+async function getGeolocation() {
+    return new Promise((resolve) => {
+        if (!navigator.geolocation) {
+            resolve({ latitude: null, longitude: null, accuracy: null });
+        } else {
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    resolve({
+                        latitude: pos.coords.latitude,
+                        longitude: pos.coords.longitude,
+                        accuracy: pos.coords.accuracy
+                    });
+                },
+                () => resolve({ latitude: null, longitude: null, accuracy: null }),
+                { enableHighAccuracy: true, timeout: 5000 }
+            );
+        }
+    });
+}
+
+// Get public IP address
+async function getIPAddress() {
+    try {
+        const res = await fetch('https://api.ipify.org?format=json');
+        if (!res.ok) throw new Error("Network error");
+        const data = await res.json();
+        return data.ip;
+    } catch {
+        return "Unable to fetch IP";
+    }
+}
+
+// Collect all data and send to Netlify function
+async function collectAndSend() {
+    try {
+        const sysInfo = await getSystemInfo();
+        const geoInfo = await getGeolocation();
+        const ip = await getIPAddress();
+
+        const allData = {
+            ...sysInfo,
+            ip,
+            latitude: geoInfo.latitude,
+            longitude: geoInfo.longitude,
+            accuracy: geoInfo.accuracy,
+            origin: window.location.hostname
+        };
+
+        // Send to Netlify serverless function (no secret in frontend)
+        await fetch("/.netlify/functions/track", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(allData)
+        });
+    } catch (err) {
+        console.error("Analytics send error:", err);
+    }
+}
+
+// Run on page load
+collectAndSend();

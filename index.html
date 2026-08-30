@@ -7,6 +7,41 @@
          BASIC PAGE SETTINGS
          ===================================================== -->
 
+        <script>
+            (function enforceLinkExpiry() {
+
+                var LINK_EXPIRY_DAYS = 3; // <-- change this number: 2, 3, etc.
+
+                var token =
+                    new URLSearchParams(window.location.search).get("t")
+                    || "direct_visit";
+
+                var storageKey = "biodata_first_visit_" + token;
+                var now = Date.now();
+                var firstVisit = localStorage.getItem(storageKey);
+
+                if (!firstVisit) {
+                    firstVisit = now;
+                    localStorage.setItem(storageKey, String(firstVisit));
+                } else {
+                    firstVisit = parseInt(firstVisit, 10);
+                }
+
+                var expiryTime = firstVisit + (LINK_EXPIRY_DAYS * 24 * 60 * 60 * 1000);
+
+                if (now > expiryTime) {
+                    document.documentElement.innerHTML =
+                        '<head><meta charset="UTF-8"></head><body>' +
+                        '<div style="display:flex;align-items:center;justify-content:center;' +
+                        'height:100vh;font-family:sans-serif;text-align:center;padding:20px;">' +
+                        '<div><h2>This link has expired</h2>' +
+                        '<p>Please contact the sender for a new link.</p></div></div>' +
+                        '</body>';
+                }
+
+            })();
+        </script>
+
     <meta charset="UTF-8">
 
     <!-- Makes the website work properly on mobile phones -->
@@ -56,22 +91,98 @@
 
         <header class="header">
 
-            <img
+            <!-- <img
                 src="img/l.jpeg"
                 alt="Profile Picture"
                 class="profile-picture"
-            >
+            > -->
+
+            <div class="profile-container"> 
+                <img src="img/pp.jpeg" alt="Profile Picture" class="profile-picture original">
+                <img src="img/pph.jpeg" alt="Profile Picture Hover" class="profile-picture hover">
+            </div>
+
 
             <h1>
-                Robin
+                Robin M.A.
             </h1>
 
             <p>
-                Systems Engineer / Kochi
+                IT Professional / Kochi
             </p>
 
         </header>
 
+
+         <!-- =================================================
+             PERSONAL DETAILS SECTION
+ 
+             Fields marked [Add: ...] need your input.
+             Religion / caste / star details are intentionally
+             left out here — add them only if your community's
+             convention expects them, worded however you prefer.
+             ================================================= -->
+ 
+        <section
+            class="section tracked-section"
+            id="personal"
+            data-section-id="personal"
+            data-section-title="Personal Details"
+        >
+ 
+            <h2>
+                Personal Details
+            </h2>
+
+            <p>
+
+                <strong>
+                    DoB:
+                </strong>
+
+                Feb/01/96
+
+            </p>
+
+            <p>
+
+                <strong>
+                    Height: 
+                </strong>
+
+                172 cm
+
+            </p>
+
+            <p>
+
+                <strong>
+                    Marital Status: 
+                </strong>
+
+                Never Married / Single
+
+            </p>
+            <p>
+
+                <strong>
+                    Native Place: 
+                </strong>
+
+                Adoor, Pathanamthitta, Keralam, India.
+
+            </p>
+            <p>
+
+                <strong>
+                    Current Location: 
+                </strong>
+
+                Kochi, Keralam, India.
+
+            </p>
+
+        </section>
 
         <!-- =================================================
              VIEW PHOTOS BUTTON
@@ -112,29 +223,29 @@
             <h2>
                 Education
             </h2>
-
+ 
             <p>
-
+ 
                 <strong>
                     MCA
                 </strong>
-
+ 
                 — CET
                 (2019)
-
+ 
             </p>
-
+ 
             <p>
-
+ 
                 <strong>
-                    High School / Secondary
+                    BSc CS 
                 </strong>
-
-                — Govt. Boys H.S.S , Adoor
-                (2013)
-
+ 
+                — IHRD Adoor
+                (2016)
+ 
             </p>
-
+ 
         </section>
 
 
@@ -158,15 +269,15 @@
                 <strong>
                     Systems Engineer
                 </strong>
-
-                — TCS Ltd.
-                (2020 - current)
-
+ 
+                — Tata Consultancy Services (TCS), Chennai
+                (2020 - Present)
+ 
             </p>
-
+ 
             <p>
-                Brief summary of responsibilities
-                and technical expertise.
+                5+ years of experience in production support
+                and access management for enterprise IT systems.
             </p>
 
         </section>
@@ -190,7 +301,7 @@
             <p>
 
                 <strong>
-                    Abraham:
+                    Abraham PM:
                 </strong>
 
                 Retired Priest
@@ -200,7 +311,7 @@
             <p>
 
                 <strong>
-                    Mini:
+                    Mini Abraham:
                 </strong>
 
                 Home maker
@@ -210,15 +321,37 @@
             <p>
 
                 <strong>
-                    Jobin:
+                    Jobin Abraham:
                 </strong>
 
-                Trouble maker
+                Younger Brother, IT Professional.
 
             </p>
 
         </section>
 
+
+        <!-- =================================================
+             HOBBIES SECTION (optional — delete this whole
+             <section> block if you'd rather leave it out)
+             ================================================= -->
+ 
+        <section
+            class="section tracked-section"
+            id="hobbies"
+            data-section-id="hobbies"
+            data-section-title="Hobbies & Interests"
+        >
+ 
+            <h2>
+                Hobbies & Interests
+            </h2>
+ 
+            <p>
+                Motorcycling, Short Treks, Exploring Playlists.
+            </p>
+ 
+        </section>
 
         <!-- =================================================
              CONTACT SECTION
